@@ -490,7 +490,7 @@ st.markdown(
         font-size: 0.9rem;
         margin-top: 0.25rem;
     ">
-        This radar plot compares the number of tropes in each school. 
+        This radar plot compares the number of tropes present in each school fight song. 
     </p>
     """,
     unsafe_allow_html=True
