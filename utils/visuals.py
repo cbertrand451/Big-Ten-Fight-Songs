@@ -232,14 +232,16 @@ RANK_CONFIG = {
         "ascending": True, 
         "label": "Tempo (BPM)",
         "xaxis": "Slowest → Fastest",
-        "show_avg": True
+        "show_avg": True,
+        "an_po": "top left"
     },
     "Duration Rank": {
         "col": "sec_duration",
         "ascending": True,
         "label": "Duration (seconds)",
         "xaxis": "Shortest → Longest",
-        "show_avg": True
+        "show_avg": True,
+        "an_po": "top left"
     },
     "Year Written Rank": {
         "col": "year_offset",
@@ -249,14 +251,16 @@ RANK_CONFIG = {
         "axis_mode": "year_offset",
         "tick_step": 10,
         "original": "year",
-        "show_avg": True
+        "show_avg": True,
+        "an_po": "top right"
     },
     "Trope Density Rank": {
         "col": "trope_count",
         "ascending": True,
         "label": "Total Tropes",
         "xaxis": "Least → Most",
-        "show_avg": True
+        "show_avg": True,
+        "an_po": "top left"
     }
 }
 
@@ -316,7 +320,7 @@ def big_ten_rank_bars(df: pd.DataFrame, school, rank_key, color, color2):
             line_width=2,
             line_color=color2,
             annotation_text=f"Big Ten Average: {round(avg_val)}",
-            annotation_position="top left"
+            annotation_position=cfg['an_po']
         )
 
     plot_df["rank"] = plot_df.index + 1
