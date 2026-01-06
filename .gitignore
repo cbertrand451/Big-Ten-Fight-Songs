@@ -1,1 +1,4 @@
 /scratch_work.ipynb
+
+__pycache__/
+*.pyc
