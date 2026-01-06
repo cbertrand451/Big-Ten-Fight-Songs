@@ -53,7 +53,7 @@ with col_para:
                 stand out amongst it's university colleagues. This experience is meant to be interactive, so explore the insights each school has to offer!
 
 
-                """)
+                """, unsafe_allow_html=True)
 with col_logo:
     # B1G Logo
     nan1, pic, nan2 = st.columns([1, 4, 1])
