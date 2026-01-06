@@ -12,7 +12,7 @@ st.set_page_config(page_title="B1G Fight Songs",
 df = get_big_data()
 
 # title
-st.markdown("<h1 style='text-align:center;'>Sounds of the B1G Conference</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align:center;'>Sounds of the Big Ten Conference</h1>", unsafe_allow_html=True)
 # caption
 st.markdown("<h4 style='text-align:center;'>An interactive analysis of Big Ten fight songs</h3>", unsafe_allow_html=True)
 # author
