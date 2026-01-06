@@ -73,10 +73,15 @@ def big_tempo_duration(df: pd.DataFrame):
     
     # create plot
     fig = px.scatter(df, x='sec_duration', y='bpm', title="Big Ten Tempo vs. Duration", 
-                     hover_data=['school', 'bpm', 'sec_duration'], labels={'bpm': 'Tempo (BPM)', 'sec_duration': 'Duration (Seconds)'},
-                     color='school', color_discrete_map=SCHOOL_COLORS)
+                     labels={'bpm': 'Tempo (BPM)', 'sec_duration': 'Duration (Seconds)'},
+                     color='school', color_discrete_map=SCHOOL_COLORS, custom_data=['school'])
     fig.update_traces(marker=dict(size=12, line=dict(width=2, color='DarkSlateGrey')), 
-                      selector=dict(mode='markers'))
+                      selector=dict(mode='markers'),
+                      hovertemplate=(
+                        "<b>%{customdata[0]}</b><br>"
+                        "Tempo (BPM): %{y:.0f}<br>"
+                        "Duration: %{x:.0f} seconds"
+                        "<extra></extra>"))
     fig.add_vline(
         x=duration_mean,
         line_dash="dash",
@@ -169,7 +174,7 @@ def school_radar_plot(df: pd.DataFrame, school, school_color="FFFFFF"):
     r_ = rgbs[0]
     g_ = rgbs[1]
     b_ = rgbs[2]
-    # --- School trace ---
+    # School trace 
     fig.add_trace(
         go.Scatterpolar(
             r=school_vals_closed,
@@ -182,7 +187,7 @@ def school_radar_plot(df: pd.DataFrame, school, school_color="FFFFFF"):
         )
     )
 
-    # --- Big Ten trace ---
+    # Big Ten trace 
     fig.add_trace(
         go.Scatterpolar(
             r=big_vals_closed,
@@ -375,7 +380,7 @@ def dual_school_radar_plot(
         'fight'
     ]
 
-    # --- Extract school rows ---
+    #  Extract school rows 
     left_row = df.loc[df['school'] == school_left]
     right_row = df.loc[df['school'] == school_right]
 
@@ -396,11 +401,11 @@ def dual_school_radar_plot(
 
     fig = go.Figure()
 
-    # --- Color prep ---
+    # Color prep 
     lr, lg, lb = hex_to_rgb(left_color)
     rr, rg, rb = hex_to_rgb(right_color)
 
-    # --- Left School ---
+    # Left School 
     fig.add_trace(
         go.Scatterpolar(
             r=left_vals_closed,
@@ -416,7 +421,7 @@ def dual_school_radar_plot(
         )
     )
 
-    # --- Right School ---
+    # Right School 
     fig.add_trace(
         go.Scatterpolar(
             r=right_vals_closed,
@@ -432,7 +437,7 @@ def dual_school_radar_plot(
         )
     )
 
-    # --- Layout (CENTERED EVERYTHING) ---
+    # Layout (CENTERED EVERYTHING) 
     fig.update_layout(
         polar=dict(
             radialaxis=dict(
@@ -485,7 +490,7 @@ def big_ten_rank_bars_dual(
 
     plot_df = df.sort_values(cfg['col'], ascending=cfg['ascending']).reset_index(drop=True)
 
-    # --- Color mapping ---
+    # Color mapping 
     def bar_color(s):
         if s == school_left:
             return color_left
@@ -512,7 +517,7 @@ def big_ten_rank_bars_dual(
         )
     )
 
-    # --- Axis handling ---
+    # Axis handling 
     if cfg.get("axis_mode") == "year_offset":
         year_max = df['year'].max() + 10
         step = cfg.get("tick_step", 10)
@@ -529,7 +534,7 @@ def big_ten_rank_bars_dual(
     else:
         fig.update_yaxes(title=cfg["label"])
 
-    # --- Conference average ---
+    # Conference average 
     if cfg.get("show_avg", False):
         avg_val = plot_df[cfg["col"]].mean()
         fig.add_hline(
@@ -541,7 +546,7 @@ def big_ten_rank_bars_dual(
             annotation_position="top left"
         )
 
-    # --- Ranking calculation ---
+    # Ranking calculation 
     plot_df["rank"] = plot_df.index + 1
     n_schools = len(plot_df)
 
@@ -559,7 +564,7 @@ def big_ten_rank_bars_dual(
     left_rank, left_val, label = get_rank_info(school_left)
     right_rank, right_val, _ = get_rank_info(school_right)
 
-    # --- Title ---
+    #  Title 
     title_text = (
         f"<span style='color:{color_left}; font-size:22px;'>{school_left}</span>"
         f"<span style='color:#666; font-size:18px;'> (#{left_rank})</span>"
@@ -598,11 +603,11 @@ def big_tempo_duration_dual(
     color_left: str,
     color_right: str
 ):
-    # --- Conference averages ---
+    # Conference averages 
     tempo_mean = df['bpm'].mean()
     duration_mean = df['sec_duration'].mean()
 
-    # --- Assign plotting color ---
+    # Assign plotting color 
     def assign_color(s):
         if s == school_left:
             return school_left
@@ -620,7 +625,7 @@ def big_tempo_duration_dual(
         "Other Schools": "rgb(150,150,150)"
     }
 
-    # --- Create plot ---
+    # Create plot 
     fig = px.scatter(
         plot_df,
         x="sec_duration",
@@ -637,20 +642,26 @@ def big_tempo_duration_dual(
             "bpm": "Tempo (BPM)",
             "sec_duration": "Duration (Seconds)"
         },
-        title="Big Ten Tempo vs. Duration"
+        title="Big Ten Tempo vs. Duration",
+        custom_data=['school']
     )
 
-    # --- Marker styling ---
+    # Marker styling 
     fig.update_traces(
         marker=dict(
             size=12,
             line=dict(width=2, color="DarkSlateGrey"),
             opacity=0.9
         ),
-        selector=dict(mode="markers")
+        selector=dict(mode="markers"),
+        hovertemplate=(
+                        "<b>%{customdata[0]}</b><br>"
+                        "Tempo (BPM): %{y:.0f}<br>"
+                        "Duration: %{x:.0f} seconds"
+                        "<extra></extra>")
     )
 
-    # --- Emphasize highlighted schools ---
+    # Emphasize highlighted schools 
     fig.update_traces(
         marker=dict(size=16, opacity=1),
         selector=dict(name=school_left)
@@ -660,7 +671,7 @@ def big_tempo_duration_dual(
         selector=dict(name=school_right)
     )
 
-    # --- Mean lines (optional but recommended) ---
+    # Mean lines 
     fig.add_vline(
         x=duration_mean,
         line_dash="dash",
