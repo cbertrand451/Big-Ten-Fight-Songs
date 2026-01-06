@@ -473,6 +473,11 @@ with arrow:
         st.markdown("")
     st.markdown(f"""<div style="font-size: 100px;font-weight: 700;text-align: center;line-height: 1;">{v}</div>""", unsafe_allow_html=True)
 
+st.markdown(f"""
+            <p style="text-align:center; font-size:0.9rem; color:#6b6b6b;">
+                Delta pills under winning metrics represent the increase or decrease from the opposing school
+            </p>
+           """, unsafe_allow_html=True)
 '---'
 # trope radar plot
 dual_school_radar_plot(df, school1, school2, PRIMARY1, PRIMARY2)
