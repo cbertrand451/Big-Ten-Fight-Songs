@@ -4,7 +4,7 @@ An interactive Streamlit dashboard that analyzes Big Ten fight songs by tempo, d
 
 [Dashboard Link]("bigtenfightsongs.streamlit.app")
 
-## How to Use the App (start here)
+## How to Use the App
 1. Install dependencies: `pip install -r requirements.txt`
 2. Create the Big Ten dataset (run once): `python -c "from utils.big_data import big_data; big_data()"`
    - This reads `data/raw/fight-songs-updated.csv` and writes `data/B1G/big_ten_fight_songs.csv`.
@@ -45,4 +45,5 @@ An interactive Streamlit dashboard that analyzes Big Ten fight songs by tempo, d
 - `utils/`: Data loading, cleaning, plotting helpers, and styling components.
 - `data/raw/`: Source CSV from FiveThirtyEight; `data/B1G/`: cleaned Big Ten dataset.
 - `data/colors/` and `data/logos/`: Branding assets and references.
+
 
