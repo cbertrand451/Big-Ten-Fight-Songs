@@ -39,8 +39,7 @@ with col_para:
     st.markdown("""
                 Fight songs play a big role in defining the identity and spirit of a university. 
                 The 18 schools in the Big Ten each have a fight song whcih reflect their tradition and compeition. 
-                Using data from [FiveThirtyEight]("https://github.com/fivethirtyeight/data/tree/4c1ff5e3aef1816ae04af63218015066e186c147/fight-songs#fight-songs"), 
-                this dashboard analyzes how tempo, duration, and lyrical tropes vary across the conference. 
+                Using data from FiveThirtyEight, this dashboard analyzes how tempo, duration, and lyrical tropes vary across the conference. 
                 
                 - **Tropes** are a repeated motif 
                 that are found within a fight song. For example, the *fight* trope column represents whether the 
