@@ -558,7 +558,7 @@ st.markdown(
         margin-top: 0.25rem;
     ">
         This scatterplot explores the difference in tempo and length of a fight song between not only <b>{school1}</b> and <b>{school2}</b>, 
-        but also the other Big Ten schools and the conference averages. The schools re highlighted in their respective colors.  
+        but also the other Big Ten schools and the conference averages. The schools are highlighted in their respective colors.  
     </p>
     """,
     unsafe_allow_html=True
