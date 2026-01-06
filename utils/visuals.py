@@ -75,7 +75,7 @@ def big_tempo_duration(df: pd.DataFrame):
     fig = px.scatter(df, x='sec_duration', y='bpm', title="Big Ten Tempo vs. Duration", 
                      labels={'bpm': 'Tempo (BPM)', 'sec_duration': 'Duration (Seconds)'},
                      color='school', color_discrete_map=SCHOOL_COLORS, custom_data=['school'])
-    fig.update_traces(marker=dict(size=12, line=dict(width=2, color='DarkSlateGrey')), 
+    fig.update_traces(marker=dict(size=12, line=dict(width=2, color='grey')), 
                       selector=dict(mode='markers'),
                       hovertemplate=(
                         "<b>%{customdata[0]}</b><br>"
@@ -86,15 +86,15 @@ def big_tempo_duration(df: pd.DataFrame):
         x=duration_mean,
         line_dash="dash",
         line_color="gray",
-        annotation_text="Avg Duration",
+        annotation_text=f"Avg Duration: {round(duration_mean, 2)}",
         annotation_position="top"
     )
     fig.add_hline(
         y=tempo_mean,
         line_dash="dash",
         line_color="gray",
-        annotation_text="Avg Tempo",
-        annotation_position="right"
+        annotation_text=f"Avg Tempo: {round(tempo_mean, 2)}",
+        annotation_position="bottom right"
     )
     
     st.plotly_chart(fig, theme="streamlit", width="stretch")
@@ -654,7 +654,7 @@ def big_tempo_duration_dual(
     fig.update_traces(
         marker=dict(
             size=12,
-            line=dict(width=2, color="DarkSlateGrey"),
+            line=dict(width=2, color="grey"),
             opacity=0.9
         ),
         selector=dict(mode="markers"),
@@ -680,14 +680,14 @@ def big_tempo_duration_dual(
         x=duration_mean,
         line_dash="dash",
         line_color="gray",
-        annotation_text="Avg Duration",
+        annotation_text=f"Avg Duration: {round(duration_mean, 2)}",
         annotation_position="top"
     )
     fig.add_hline(
         y=tempo_mean,
         line_dash="dash",
         line_color="gray",
-        annotation_text="Avg Tempo",
+        annotation_text=f"Avg Tempo: {round(tempo_mean, 2)}",
         annotation_position="right"
     )
 
