@@ -43,7 +43,7 @@ with col_para:
                 
                 - **Tropes** are a repeated motif 
                 that are found within a fight song. For example, the *fight* trope column represents whether the 
-                word 'fight' shows up in a fight song. 
+                word 'fight' shows up in a song. 
 
                 - **BPM** represents *beats per minute*.
 
