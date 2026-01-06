@@ -547,7 +547,7 @@ def big_ten_rank_bars_dual(
             line_width=2,
             line_color=avg_color,
             annotation_text=f"Big Ten Avg: {round(avg_val)}",
-            annotation_position="top left"
+            annotation_position=cfg['an_po']
         )
 
     # Ranking calculation 
