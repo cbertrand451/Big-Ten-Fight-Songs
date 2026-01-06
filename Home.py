@@ -50,7 +50,7 @@ with col_para:
 
                 The features below explore the Big Ten conference through summary statistics, trope identities, sound profiles, and metric rankings. 
                 This dashboard aims to discover what characteristics of fight songs Big Ten schools may share, and what characteristics make a school
-                stand out amongst it's university colleagues. This experience is meant to be interactive, so explore what insight each school has to offer!
+                stand out amongst it's university colleagues. This experience is meant to be interactive, so explore the insights each school has to offer!
 
 
                 """)
