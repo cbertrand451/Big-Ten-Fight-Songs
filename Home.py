@@ -47,7 +47,8 @@ with col_para:
 
                 - **BPM** represents *beats per minute*.
 
-                The features below explore the Big Ten conference through summary statistics, trope identities, sound profiles, and metric rankings. 
+                There are multiple pages of data analysis found on the sidebar or bottom of this page, so please venture!
+                The specific features below explore the Big Ten conference through summary statistics, trope identities, sound profiles, and metric rankings. 
                 This dashboard aims to discover what characteristics of fight songs Big Ten schools may share, and what characteristics make a school
                 stand out amongst it's university colleagues. This experience is meant to be interactive, so explore the insights each school has to offer!
 
